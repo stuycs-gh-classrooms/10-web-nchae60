@@ -1,4 +1,4 @@
-p
+p,
 li {
 color: rgb(125 125 125);
 background-color: rgb(200 200 200);
@@ -7,7 +7,7 @@ font-size: 16px;
 border: dotted;
 }
 
-h1
+h1,
 h2 {
 width: 90%px;
 height: 40%px;
