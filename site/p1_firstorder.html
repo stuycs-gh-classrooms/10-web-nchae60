@@ -1,17 +1,41 @@
 <!DOCTYPE html>
-<meta lang="en">
+<html lang="en">
 
 <head>
+    <title>Order of Reactions</title>
     <meta charset="utf-8">
+    <link href="projstyle.css" rel="stylesheet">
     <h1>First Order Reactions</h1>
 </head>
 
 <body>
-    <h1>Table of Contents </h1>
+<nav class="ToC">
     <ul>
-        <li> <a href="http://homer.stuy.edu/~nchae60/site/index.html">Back to Index</a> </li>
-        <li> <a href="http://homer.stuy.edu/~nchae60/site/p0_zeroorder.html">Zero Order Reactions</a> </li>
-        <li> First Order Reactions </li>
-        <li> <a href="http://homer.stuy.edu/~nchae60/site/p2_secondorder.html">Second Order Reactions</a> </li>
+        <li> <a href="http://homer.stuy.edu/~nchae60/site/index.html" class="indexlink">Home</a> </li>
+        <li> <a href="http://homer.stuy.edu/~nchae60/site/p0_zeroorder.html" class="indexlink">Zero Order Reactions</a> </li>
+        <li class="indexcurrent"> First Order Reactions </li>
+        <li> <a href="http://homer.stuy.edu/~nchae60/site/p2_secondorder.html" class="indexlink">Second Order Reactions</a> </li>
     </ul>
+</nav>
+  <div class="firsttext">
+    <p>When graphed with the same units of a zero order reaction, it will appear as a negative exponential graph.
+    Because a second order reaction appears to be very similar, they must be distinguished by the y-axis they can be graphed against in order to achieve
+    a linear graph. In the case of a first-order reaction, graphing it against the natural log (ln) of the numeric concentration achieves linearization.
+    </p>
+  </div>
+
+    <img src="./images/firstorder.png" class="0firstimg">
+
+    <div class="firsttext">
+	<p> The reason natural log is present in this order of reaction is explained better in a mathematical sense, though it involves calculus, something that isn't expected of sophomore AP Chemistry students.
+  </div>
+
+    <img src="./images/firstorderintegratedratelaw.jpg" class="1firstimg">
+
+    <div class="firsttext">
+	<p> When the differential is integrated into a linear equation, the observed and initial concentrations serve as y and b respectively in the slope-intercept form.
+	In simpler terms, the natural logarithm function reveals the linear trend by compressing larger values and expanding small values, a manipulation that happens to work well with exponential decay in first order.
+<p>
+</div>
 </body>
+</html>
