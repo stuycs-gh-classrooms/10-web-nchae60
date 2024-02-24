@@ -1,0 +1,91 @@
+html {
+  font-size: 27px;
+  font-family: "Helvetica";
+  color: ivory;
+  background-color: #093145;
+}
+
+li {
+  display: inline;
+  padding: 15px;
+  font-size: 40px;
+}
+
+a {
+  text-decoration: none;
+  color: #CC8F00
+}
+
+a:hover {
+  text-decoration: underline dotted;
+  color: #FFBA1A;
+}
+
+li:hover {
+  color: #FFC94D
+}
+
+img {
+  max-width:500px;
+  max-height:500px;
+  padding-left: 40%;
+}
+
+h1 {
+  font-size: 70px;
+  text-align: center;
+  margin:30px;
+}
+
+.ToC {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-left: 100px;
+  margin-right: 100px;
+  border-color: ivory;
+  border-style: solid;
+  border-radius: 35px;
+  text-align: center;
+}
+/*end of general css*/
+
+.nameperiod {
+  text-align: center;
+  font-weight: 100;
+  font-size: 29px;
+}
+
+.indexcurrent {
+  font-weight: 700;
+  color: #FFBF00;
+}
+
+.indexToC {
+  margin-left: 100px;
+  margin-right: 100px;
+  border-color: ivory;
+  border-style: solid;
+  border-radius: 35px;
+  text-align: center;
+}
+
+.indexheader {
+  font-size: 55px;
+}
+
+.indextext,
+.zerotext,
+.firsttext,
+.secondtext {
+  line-height: 1.9;
+  margin-left: 7%;
+  margin-right: 7%;
+  text-indent: 6%;
+  text-align: justify;
+}
+
+.indeximg,
+.1firstimg {
+  width: 100px;
+  height: 100px;
+}
