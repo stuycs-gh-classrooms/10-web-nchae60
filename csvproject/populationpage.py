@@ -33,7 +33,7 @@ def returnpopulation(country, year, request):
         listed = line.split(',') #list of lists, ['string', 'stringnums'...]
         numberlist = []
         for stringnum in listed[1:]:
-            numberlist.append(int(stringnum))
+            numberlist.append(int(stringnum) / 100000)
         storagedict[listed[0]] = numberlist #dictionary, 'string' : ['stringnums'...]
     if request == 'yearpop':
         valueindex = int(year) - 1960
@@ -92,14 +92,13 @@ form_input = cgi.FieldStorage()
 # img setup
 country = form_input.getvalue('countryname')
 xname = 'Year'
-yname = 'Population of ' + str(country)
+yname = 'Population of ' + str(country) + 'in hundreds of thousands'
 if ('countryname' in form_input):
     xdata = generateyears()
     ydata = returnpopulation(country, '', 'countrydata')
     plt.plot(xdata, ydata)
     plt.xlabel(xname)
     plt.ylabel(yname)
-
 img = make_image_element()
 form = form()
 body = body(img, form)
