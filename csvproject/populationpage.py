@@ -92,7 +92,7 @@ form_input = cgi.FieldStorage()
 # img setup
 country = form_input.getvalue('countryname')
 xname = 'Year'
-yname = 'Population'
+yname = 'Population of ' + str(country)
 if ('countryname' in form_input):
     xdata = generateyears()
     ydata = returnpopulation(country, '', 'countrydata')
