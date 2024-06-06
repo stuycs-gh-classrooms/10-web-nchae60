@@ -1,7 +1,7 @@
 #! /usr/bin/python
 print('Content-type: text/html\n')
 import cgitb #
-cgitb.enable()
+#cgitb.enable()
 import matplotlib.pyplot as plt
 import io
 import base64
@@ -109,25 +109,27 @@ def body(img, form):
 
 
 #form setup
+country = 'United States'
 def form():
     html = """
     <form action="code.py" method="GET">
-    <label for="country">Official Country Name:</label>
-    <input type="text" id="country" name="country" value="United States"><br>
-    <input type="submit" value="Submit">
-    </form>
+      <input type="text" id="country" name="countryname" value="United States"><br>
+      <input type="submit" value="Submit">
+    </form> 
     """
+    return html
 form_input = cgi.FieldStorage()
 print(form_input)
 # img setup
-country = form_input.getvalue('country')
-xdata = generateyears()
-ydata = returnpopulation(country, '', 'countrydata')
+country = form_input.getvalue('countryname')
 xname = 'Year'
 yname = 'Population'
-plt.plot(xdata, ydata)
-plt.xlabel(xname)
-plt.ylabel(yname)
+if ('countryname' in form_input):
+    xdata = generateyears()
+    ydata = returnpopulation(country, '', 'countrydata')
+    plt.plot(xdata, ydata)
+    plt.xlabel(xname)
+    plt.ylabel(yname)
 img = make_image_element()
 
 html(body(img, form()))
