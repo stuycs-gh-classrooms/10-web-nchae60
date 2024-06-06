@@ -7,7 +7,6 @@ import io
 import base64
 import cgi
 import math
-#delete this one
 import pprint
 
 def make_image_element():
@@ -53,35 +52,6 @@ def generateyears():
         current += 1
     return list(n)
 
-def otherdata(country, request):
-    data = open('otherdata.csv').read()
-    storagedict = {}
-    splitdata = data.split('\n')[1:]
-    splitnew = []
-    for element in splitdata:
-        splitnew.append(element.split(','))
-    for list in splitnew:
-        numberlist = []
-        for stringnum in list[3:]:
-            if stringnum != '':
-                numberlist.append(float(stringnum))
-            else:
-                numberlist.append('Info Unavailable')
-            storagedict[list[0]] = numberlist
-    if request == 'dict':
-        return storagedict
-    elif request == 'countryinfo':
-        return storagedict[country]
-
-def infotoindex(whichdata):
-    data = open('otherdata.csv').read()
-    splitdata = data.split(',')[3:19]
-    index = splitdata.index(whichdata)
-    return index
-
-
-#pprint.pprint(otherdata('United States', 'countryinfo'))
-#print(returnpopulation('', '', 'popdict'))
 #-=-=-=-=-= HTML -==-=-=-=-=-=-=
 
 def html(body):
@@ -100,7 +70,8 @@ def html(body):
 def body(img, form):
     body = """
     <h1> Test Header </h1>
-    <p> paragraph thing
+    <p> Input one of the following country names to generate a graph of its population from 1960 to 2022. <br>
+    Note that 
     """
     body += img + '</p>'
     body += '<p> a form'
@@ -112,14 +83,13 @@ def body(img, form):
 country = 'United States'
 def form():
     html = """
-    <form action="code.py" method="GET">
+    <form action="populationpage.py" method="GET">
       <input type="text" id="country" name="countryname" value="United States"><br>
       <input type="submit" value="Submit">
     </form> 
     """
     return html
 form_input = cgi.FieldStorage()
-print(form_input)
 # img setup
 country = form_input.getvalue('countryname')
 xname = 'Year'
