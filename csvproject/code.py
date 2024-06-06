@@ -1,7 +1,7 @@
 #! /usr/bin/python
 print('Content-type: text/html\n')
 import cgitb #
-#cgitb.enable()
+cgitb.enable()
 import matplotlib.pyplot as plt
 import io
 import base64
