@@ -130,6 +130,9 @@ if ('countryname' in form_input):
     plt.plot(xdata, ydata)
     plt.xlabel(xname)
     plt.ylabel(yname)
-img = make_image_element()
 
-html(body(img, form()))
+img = make_image_element()
+form = form()
+body = body(img, form)
+html = html(body)
+print(html)
