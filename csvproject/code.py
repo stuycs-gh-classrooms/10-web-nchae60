@@ -8,8 +8,6 @@ import base64
 import cgi
 import math
 #delete this one
-import os
-os.chdir("csvproject")
 import pprint
 
 def make_image_element():
