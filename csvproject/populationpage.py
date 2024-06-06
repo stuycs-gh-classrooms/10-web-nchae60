@@ -108,8 +108,7 @@ if ('countryname' in form_input):
         plt.plot(xdata, y1data)
         plt.xlabel(xname)
         plt.ylabel(yname)
-        label = [country, country1]
-        plt.legend()
+        plt.legend([country, country1], loc="upper left")
 img = make_image_element()
 form = form()
 body = body(img, form)
