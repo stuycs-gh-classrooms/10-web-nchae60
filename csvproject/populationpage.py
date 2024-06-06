@@ -80,11 +80,10 @@ def body(img, form):
 
 
 #form setup
-country = 'United States'
 def form():
     html = """
     <form action="populationpage.py" method="GET">
-      <input type="text" id="country" name="countryname" value="United States"><br>
+      <input type="text" id="country" name="countryname" value=""><br>
       <input type="submit" value="Submit">
     </form> 
     """
