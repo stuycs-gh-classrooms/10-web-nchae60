@@ -97,16 +97,17 @@ if ('countryname' in form_input):
     ydata = returnpopulation(country, '', 'countrydata')
     if not ('countryname1' in form_input):
         yname = 'Population of ' + str(country) + ' in hundreds of thousands'
+    else:
+        yname = 'Population in hundreds of thousands'
     plt.plot(xdata, ydata)
     plt.xlabel(xname)
     plt.ylabel(yname)
     if ('countryname1' in form_input):
         country1 = form_input.getvalue('countryname1')
         y1data = returnpopulation(country1, '', 'countrydata')
-        y1name = 'Population in hundreds of thousands'
-        plt.plot(xdata, y1data)
+        plt.plot(xdata, ydata)
         plt.xlabel(xname)
-        plt.ylabel(y1name)
+        plt.ylabel(yname)
         label = [country, country1]
         plt.legend()
 img = make_image_element()
