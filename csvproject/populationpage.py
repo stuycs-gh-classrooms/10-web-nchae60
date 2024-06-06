@@ -105,7 +105,7 @@ if ('countryname' in form_input):
     if ('countryname1' in form_input):
         country1 = form_input.getvalue('countryname1')
         y1data = returnpopulation(country1, '', 'countrydata')
-        plt.plot(xdata, ydata)
+        plt.plot(xdata, y1data)
         plt.xlabel(xname)
         plt.ylabel(yname)
         label = [country, country1]
