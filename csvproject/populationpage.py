@@ -70,8 +70,7 @@ def html(body):
 def body(img, form):
     body = """
     <h1> Test Header </h1>
-    <p> Input one of the following country names to generate a graph of its population from 1960 to 2022. <br>
-    Note that 
+    <p> Input one of the following country names to generate a graph of its population from 1960 to 2022. A second country name can be included to compare population trends.
     """
     body += img + '</p>'
     body += '<p> a form'
@@ -84,21 +83,32 @@ def form():
     html = """
     <form action="populationpage.py" method="GET">
       <input type="text" id="country" name="countryname" value=""><br>
+      <input type="text" id="country1" name="countryname1" value="">
       <input type="submit" value="Submit">
     </form> 
     """
     return html
 form_input = cgi.FieldStorage()
 # img setup
-country = form_input.getvalue('countryname')
 xname = 'Year'
-yname = 'Population of ' + str(country) + 'in hundreds of thousands'
 if ('countryname' in form_input):
+    country = form_input.getvalue('countryname')
     xdata = generateyears()
     ydata = returnpopulation(country, '', 'countrydata')
+    if not ('countryname1' in form_input):
+        yname = 'Population of ' + str(country) + ' in hundreds of thousands'
     plt.plot(xdata, ydata)
     plt.xlabel(xname)
     plt.ylabel(yname)
+    if ('countryname1' in form_input):
+        country1 = form_input.getvalue('countryname1')
+        y1data = returnpopulation(country1, '', 'countrydata')
+        y1name = 'Population in hundreds of thousands'
+        plt.plot(xdata, y1data)
+        plt.xlabel(xname)
+        plt.ylabel(y1name)
+        label = [country, country1]
+        plt.legend()
 img = make_image_element()
 form = form()
 body = body(img, form)
