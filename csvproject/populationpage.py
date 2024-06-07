@@ -80,15 +80,13 @@ def body(img, form):
 
 
 #form setup
-def form():
-    html = """
+form = """
     <form action="populationpage.py" method="GET">
       <input type="text" id="country" name="countryname" value=""><br>
       <input type="text" id="country1" name="countryname1" value="">
       <input type="submit" value="Submit">
     </form> 
     """
-    return html
 form_input = cgi.FieldStorage()
 # img setup
 xname = 'Year'
@@ -112,8 +110,11 @@ if ('countryname' in form_input):
                 plt.xlabel(xname)
                 plt.ylabel(yname)
                 plt.legend([country, country1], loc="upper left")
+            else:
+                form += "<br> <p> Second country name is invalid! </p>"
+        else:
+            form += "<br> <p> First country name is invalid! </p>"
 img = make_image_element()
-form = form()
 body = body(img, form)
 html = html(body)
 print(html)
