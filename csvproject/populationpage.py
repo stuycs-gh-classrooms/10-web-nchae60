@@ -43,6 +43,7 @@ def returnpopulation(country, year, request):
     elif request == 'countrydata':
         return storagedict[country]
         
+countries = returnpopulation('', '', 'popdict').keys()
 
 def generateyears():
     n = []
@@ -93,22 +94,24 @@ form_input = cgi.FieldStorage()
 xname = 'Year'
 if ('countryname' in form_input):
     country = form_input.getvalue('countryname')
-    xdata = generateyears()
-    ydata = returnpopulation(country, '', 'countrydata')
-    if not ('countryname1' in form_input):
-        yname = 'Population of ' + str(country) + ' in hundreds of thousands'
-    else:
-        yname = 'Population in hundreds of thousands'
-    plt.plot(xdata, ydata)
-    plt.xlabel(xname)
-    plt.ylabel(yname)
-    if ('countryname1' in form_input):
-        country1 = form_input.getvalue('countryname1')
-        y1data = returnpopulation(country1, '', 'countrydata')
-        plt.plot(xdata, y1data)
+    if country in countries:
+        xdata = generateyears()
+        ydata = returnpopulation(country, '', 'countrydata')
+        if not ('countryname1' in form_input):
+            yname = 'Population of ' + str(country) + ' in hundreds of thousands'
+        else:
+            yname = 'Population in hundreds of thousands'
+        plt.plot(xdata, ydata)
         plt.xlabel(xname)
         plt.ylabel(yname)
-        plt.legend([country, country1], loc="upper left")
+        if ('countryname1' in form_input):
+            country1 = form_input.getvalue('countryname1')
+            if country1 in countries:
+                y1data = returnpopulation(country1, '', 'countrydata')
+                plt.plot(xdata, y1data)
+                plt.xlabel(xname)
+                plt.ylabel(yname)
+                plt.legend([country, country1], loc="upper left")
 img = make_image_element()
 form = form()
 body = body(img, form)
