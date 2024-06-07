@@ -112,8 +112,8 @@ if ('countryname' in form_input):
                 plt.legend([country, country1], loc="upper left")
             else:
                 form += "<br> <p> Second country name is invalid! </p>"
-        else:
-            form += "<br> <p> First country name is invalid! </p>"
+    else:
+        form += "<br> <p> First country name is invalid! </p>"
 img = make_image_element()
 body = body(img, form)
 html = html(body)
